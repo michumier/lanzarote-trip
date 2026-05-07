@@ -144,13 +144,52 @@ body {
   color: #666;
 }
 
-.gallery-placeholder {
-  border: 2px dashed #ccc;
-  border-radius: 12px;
-  padding: 4rem 2rem;
+.timeline-placeholder {
   text-align: center;
   color: #999;
-  font-size: 1.1rem;
+  padding: 3rem 1rem;
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  font-size: 1rem;
+}
+
+#mapa .container {
+  max-width: 1100px;
+}
+
+#map {
+  height: 520px;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+.map-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.map-filters button {
+  background: #e5e5e5;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-family: inherit;
+}
+
+.map-filters button:hover {
+  background: #0f3460;
+  color: white;
+}
+
+.map-filters button.active {
+  background: #0f3460;
+  color: white;
 }
 
 footer {
