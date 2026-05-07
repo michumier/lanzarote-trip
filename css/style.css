@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1a1a1a;
+  line-height: 1.6;
+  background: #fafafa;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.hero {
+  height: 60vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+.navbar {
+  background: white;
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar a:hover {
+  color: #0f3460;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section:nth-child(even) {
+  background: white;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #1a1a2e;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #0f3460;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.timeline {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.day {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.day-badge {
+  background: #0f3460;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  height: fit-content;
+}
+
+.day-content h3 {
+  font-size: 1rem;
+  color: #1a1a2e;
+  margin-bottom: 0.25rem;
+}
+
+.day-content p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.gallery-placeholder {
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #999;
+  font-size: 1.1rem;
+}
+
+footer {
+  background: #1a1a2e;
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
