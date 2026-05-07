@@ -6,9 +6,9 @@
 
 body {
   font-family: system-ui, -apple-system, sans-serif;
-  color: #2d1810;
+  color: #1a1a1a;
   line-height: 1.6;
-  background: #fdf6ec;
+  background: #fafafa;
 }
 
 .container {
@@ -95,13 +95,13 @@ body {
 
 .navbar a {
   text-decoration: none;
-  color: #666;
+  color: #555;
   font-weight: 500;
   transition: color 0.2s;
 }
 
 .navbar a:hover {
-  color: #e86a33;
+  color: #0f3460;
 }
 
 /* SECTIONS */
@@ -110,14 +110,14 @@ body {
 }
 
 .section:nth-child(even) {
-  background: #faf0e0;
+  background: white;
 }
 
 .section h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   text-align: center;
-  color: #2d1810;
+  color: #1a1a2e;
 }
 
 .section-sub {
@@ -157,7 +157,7 @@ body {
 }
 
 .map-filters button {
-  background: #f0e6d6;
+  background: #e5e5e5;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -168,12 +168,12 @@ body {
 }
 
 .map-filters button:hover {
-  background: #e86a33;
+  background: #0f3460;
   color: white;
 }
 
 .map-filters button.active {
-  background: #e86a33;
+  background: #0f3460;
   color: white;
 }
 
@@ -196,7 +196,7 @@ body {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: #2d1810;
+  background: #1a1a2e;
 }
 
 .alojamiento-viewport #alojamiento-img {
@@ -217,7 +217,7 @@ body {
 
 .alojamiento-body h3 {
   font-size: 1.15rem;
-  color: #e86a33;
+  color: #0f3460;
   margin-bottom: 0.25rem;
 }
 
@@ -240,7 +240,7 @@ body {
 
 .alojamiento-link {
   font-size: 0.85rem;
-  color: #1a8a7a;
+  color: #0f3460;
   text-decoration: none;
   font-weight: 500;
 }
@@ -250,7 +250,7 @@ body {
 }
 
 .alojamiento-link-maps {
-  color: #1a8a7a;
+  color: #10b981;
 }
 
 /* LIGHTBOX */
@@ -378,7 +378,7 @@ body {
 .card h3 {
   font-size: 0.95rem;
   margin-bottom: 0.2rem;
-  color: #e86a33;
+  color: #0f3460;
 }
 
 .card p {
@@ -396,7 +396,7 @@ body {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  background: #2d1810;
+  background: #1a1a2e;
   aspect-ratio: 4 / 3;
 }
 
@@ -450,7 +450,7 @@ body {
 }
 
 .carousel-dot.active {
-  background: #e86a33;
+  background: #0f3460;
   transform: scale(1.3);
 }
 
@@ -486,12 +486,12 @@ body {
 
 /* FOOTER */
 footer {
-  background: #2d1810;
+  background: #1a1a2e;
   color: white;
   text-align: center;
   padding: 2rem 0;
   font-size: 0.9rem;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 html {
