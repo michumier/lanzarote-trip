@@ -25,17 +25,22 @@ body {
   overflow: hidden;
 }
 
-.hero-imgs {
+.hero-carousel {
   position: absolute;
   inset: 0;
-  display: flex;
 }
 
-.hero-img {
-  flex: 1;
+.hero-slide {
+  position: absolute;
+  inset: 0;
   background-size: cover;
   background-position: center;
-  background-color: #1a1a2e;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
 }
 
 .hero-overlay {

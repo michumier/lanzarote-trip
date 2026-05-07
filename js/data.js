@@ -27,7 +27,7 @@ const places = [
     day: 1,
     desc: "Paisaje volcánico único con cráteres y demostraciones geotérmicas.",
     address: "LZ-67, Tinajo",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Timanfaya_National_Park_landscape.jpg/640px-Timanfaya_National_Park_landscape.jpg"
+    img: "https://upload.wikimedia.org/wikipedia/commons/4/41/Timanfaya_National_Park_landscape.jpg"
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ const places = [
     day: 2,
     desc: "Tubo volcánico convertido en centro cultural por César Manrique.",
     address: "Carretera Punta Mujeres, Haría",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Har%C3%ADa_-_MNLC_-_LZ-1_-_Jameos_del_Agua_12_ies.jpg/640px-Har%C3%ADa_-_MNLC_-_LZ-1_-_Jameos_del_Agua_12_ies.jpg"
+    img: "https://upload.wikimedia.org/wikipedia/commons/0/08/Har%C3%ADa_-_MNLC_-_LZ-1_-_Jameos_del_Agua_12_ies.jpg"
   },
   {
     id: 5,
@@ -60,7 +60,7 @@ const places = [
     day: 2,
     desc: "Pueblo costero con piscinas naturales.",
     address: "Punta Mujeres, Haría",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Punta_Mujeres_Lanzarote.jpg/640px-Punta_Mujeres_Lanzarote.jpg"
+    img: "https://upload.wikimedia.org/wikipedia/commons/2/25/Punta_Mujeres_Lanzarote.jpg"
   },
   {
     id: 6,
@@ -71,7 +71,7 @@ const places = [
     day: 2,
     desc: "Tubo volcánico de 6 km con iluminación artística.",
     address: "Carretera Punta Mujeres, Haría",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Lanzarote_5_Luc_Viatour.jpg/640px-Lanzarote_5_Luc_Viatour.jpg"
+    img: "https://upload.wikimedia.org/wikipedia/commons/1/10/Lanzarote_5_Luc_Viatour.jpg"
   },
   {
     id: 7,
@@ -82,7 +82,7 @@ const places = [
     day: 2,
     desc: "Valle de las Mil Palmeras.",
     address: "Haría",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Har%C3%ADa_with_Monte_Corona_on_Lanzarote%2C_June_2013_%282%29.jpg/640px-Har%C3%ADa_with_Monte_Corona_on_Lanzarote%2C_June_2013_%282%29.jpg"
+    img: "https://upload.wikimedia.org/wikipedia/commons/9/95/Har%C3%ADa_with_Monte_Corona_on_Lanzarote%2C_June_2013_%282%29.jpg"
   },
   {
     id: 8,
@@ -104,7 +104,7 @@ const places = [
     day: 2,
     desc: "4500 especies de cactus. Última obra de Manrique.",
     address: "Av. Garafía, 98, Guatiza, Teguise",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Jard%C3%ADn_de_Cactus-pjt.jpg/640px-Jard%C3%ADn_de_Cactus-pjt.jpg"
+    img: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Jard%C3%ADn_de_Cactus-pjt.jpg"
   },
   {
     id: 10,
@@ -115,7 +115,7 @@ const places = [
     day: 2,
     desc: "5 km de playa al pie del Risco de Famara.",
     address: "Famara, Teguise",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Risco_de_Famara.jpg/640px-Risco_de_Famara.jpg"
+    img: "https://upload.wikimedia.org/wikipedia/commons/3/39/Risco_de_Famara.jpg"
   },
   {
     id: 11,
@@ -148,7 +148,7 @@ const places = [
     day: 0,
     desc: "Resort donde nos alojamos.",
     address: "Costa Teguise",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Costa_Teguise-Playa_del_Jablillo.JPG/640px-Costa_Teguise-Playa_del_Jablillo.JPG"
+    img: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Costa_Teguise-Playa_del_Jablillo.JPG"
   },
   {
     id: 14,
@@ -159,7 +159,7 @@ const places = [
     day: 3,
     desc: "Capital de Lanzarote.",
     address: "Arrecife",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Arrecife%2C_Lanzarote_2011.JPG/640px-Arrecife%2C_Lanzarote_2011.JPG"
+    img: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Arrecife%2C_Lanzarote_2011.JPG"
   },
   {
     id: 15,
@@ -192,7 +192,7 @@ const places = [
     day: 1,
     desc: "Viñedos únicos en hoyos volcánicos.",
     address: "La Geria",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Lanzarote_LaGeria.jpg/640px-Lanzarote_LaGeria.jpg"
+    img: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Lanzarote_LaGeria.jpg"
   },
   {
     id: 18,

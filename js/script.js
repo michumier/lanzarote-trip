@@ -234,19 +234,24 @@ document.querySelectorAll(".day-place-link").forEach(a => {
   });
 });
 
-// ----- HERO GALLERY -----
-const heroImgs = document.querySelectorAll(".hero-img");
-if (heroImgs.length) {
-  const heroPics = [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Timanfaya_National_Park_landscape.jpg/640px-Timanfaya_National_Park_landscape.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Risco_de_Famara.jpg/640px-Risco_de_Famara.jpg"
-  ];
-  heroImgs.forEach((el, i) => {
-    if (i < heroPics.length) {
-      el.style.backgroundImage = `url(${heroPics[i]})`;
-    }
-  });
-}
+// ----- HERO CAROUSEL -----
+const heroCarousel = document.getElementById("hero-carousel");
+const heroImages = [
+  "https://upload.wikimedia.org/wikipedia/commons/4/41/Timanfaya_National_Park_landscape.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/3/39/Risco_de_Famara.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/9/95/Har%C3%ADa_with_Monte_Corona_on_Lanzarote%2C_June_2013_%282%29.jpg"
+];
+heroCarousel.innerHTML = heroImages.map((src, i) => `
+  <div class="hero-slide${i === 0 ? " active" : ""}" style="background-image:url(${src})"></div>
+`).join("");
+
+let currentSlide = 0;
+setInterval(() => {
+  const slides = heroCarousel.querySelectorAll(".hero-slide");
+  slides[currentSlide].classList.remove("active");
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].classList.add("active");
+}, 5000);
 
 // ----- SMOOTH SCROLL -----
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
