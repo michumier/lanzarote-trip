@@ -26,22 +26,6 @@ const dayRoutes = {
   3: [23, 14, 15, 1, 25]
 };
 
-// ----- CARDS -----
-const cardsEl = document.getElementById("lugares-cards");
-cardsEl.innerHTML = places.map(p => {
-  const img = p.img || "";
-  return `
-    <div class="card" data-category="${p.category}" data-day="${p.day}">
-      ${img ? `<div class="card-img" style="background-image:url(${img})"></div>` : ""}
-      <div class="card-body">
-        <span class="card-cat" style="background:${categoryColors[p.category]?.color || "#666"}">${categoryLabels[p.category] || p.category}</span>
-        <h3>${p.name}</h3>
-        <p>${p.desc}</p>
-      </div>
-    </div>
-  `;
-}).join("");
-
 // ----- MAP -----
 const map = L.map("map", { scrollWheelZoom: false }).setView([29.0, -13.6], 10);
 
@@ -76,15 +60,17 @@ baseMarker.bindPopup(`<b>${BASE_CAMP.name}</b><br>${BASE_CAMP.desc}<br><small>${
 markerGroup.addLayer(baseMarker);
 
 places.forEach(p => {
-  const img = p.img || "";
-  const m = L.marker([p.lat, p.lng], { icon: getIcon(p.category) });
-  m.bindPopup(`
-    ${img ? `<img src="${img}" alt="${p.name}" style="width:100%;max-height:140px;object-fit:cover;border-radius:8px;margin-bottom:6px">` : ""}
+  const hasImg = p.img && p.img.startsWith("http");
+  const popupContent = `
+    ${hasImg ? `<img src="${p.img}" alt="${p.name}" style="width:100%;max-height:130px;object-fit:cover;border-radius:8px;margin-bottom:6px">` : ""}
     <b>${p.name}</b><br>
     <span style="font-size:0.85rem">${p.desc}</span><br>
     <small>📍 ${p.address}</small>
     ${p.day >= 1 ? `<br><small>📅 ${dayLabels[p.day]}</small>` : ""}
-  `);
+  `;
+
+  const m = L.marker([p.lat, p.lng], { icon: getIcon(p.category) });
+  m.bindPopup(popupContent);
   m._placeId = p.id;
   m._category = p.category;
   m._day = p.day;
@@ -93,7 +79,7 @@ places.forEach(p => {
 });
 
 // routes
-const routeColors = { 1: "#ef4444", 2: "#8b5cf6", 3: "#3b82f6" };
+const routeColors = { 1: "#ef4444", 2: "#a855f7", 3: "#3b82f6" };
 const routePolylines = {};
 
 function drawRoute(day) {
@@ -102,11 +88,11 @@ function drawRoute(day) {
   if (!ids) return;
   const coords = [BASE_CAMP, ...ids.map(id => places.find(p => p.id === id)).filter(Boolean), BASE_CAMP];
   const latlngs = coords.map(p => [p.lat, p.lng]);
+
   routePolylines[day] = L.polyline(latlngs, {
     color: routeColors[day],
-    weight: 3,
-    opacity: 0.7,
-    dashArray: "10, 10"
+    weight: 5,
+    opacity: 0.9
   }).addTo(map);
 }
 
@@ -115,7 +101,7 @@ const filtersEl = document.getElementById("map-filters");
 let activeFilter = "all";
 
 const filterButtons = [
-  { label: "Todos", value: "all" },
+  { label: "Todos los sitios", value: "all" },
   ...Object.entries(dayLabels).map(([k, v]) => ({ label: v, value: k }))
 ];
 
@@ -134,7 +120,6 @@ filtersEl.addEventListener("click", e => {
 
 function applyDayFilter(filter) {
   Object.values(routePolylines).forEach(pl => map.removeLayer(pl));
-
   markerGroup.clearLayers();
   markerGroup.addLayer(baseMarker);
 
@@ -143,6 +128,7 @@ function applyDayFilter(filter) {
   if (filter === "all") {
     Object.values(markers).forEach(m => markerGroup.addLayer(m));
     visible = Object.values(markers);
+    document.querySelectorAll(".card-wrapper").forEach(w => w.style.display = "");
   } else {
     const day = parseInt(filter);
     Object.values(markers).forEach(m => {
@@ -152,12 +138,10 @@ function applyDayFilter(filter) {
       }
     });
     drawRoute(day);
+    document.querySelectorAll(".card-wrapper").forEach(w => {
+      w.style.display = parseInt(w.dataset.day) === day ? "" : "none";
+    });
   }
-
-  document.querySelectorAll(".card").forEach(card => {
-    const d = parseInt(card.dataset.day);
-    card.style.display = filter === "all" || d === parseInt(filter) ? "" : "none";
-  });
 
   if (visible.length > 0) {
     const group = L.featureGroup(visible);
@@ -165,7 +149,45 @@ function applyDayFilter(filter) {
   }
 }
 
-applyDayFilter("all");
+Object.values(markers).forEach(m => markerGroup.addLayer(m));
+document.querySelectorAll(".card-wrapper").forEach(w => w.style.display = "");
+
+// ----- CARDS (below map) -----
+const cardsEl = document.getElementById("lugares-cards");
+cardsEl.innerHTML = places.map(p => {
+  const c = categoryColors[p.category] || { color: "#666", icon: "📍" };
+  const hasImg = p.img && p.img.startsWith("http");
+  const gradient = `linear-gradient(135deg, ${c.color}22, ${c.color}44)`;
+  const imgStyle = hasImg
+    ? `background-image:url(${p.img})`
+    : `background:${gradient}; display:flex; align-items:center; justify-content:center; font-size:2.5rem`;
+  const imgContent = hasImg ? "" : `<span>${c.icon}</span>`;
+  return `
+    <div class="card-wrapper" data-day="${p.day}">
+      <div class="card" data-id="${p.id}">
+        <div class="card-img" style="${imgStyle}">${imgContent}</div>
+        <div class="card-body">
+          <span class="card-cat" style="background:${c.color}">${categoryLabels[p.category] || p.category}</span>
+          <h3>${p.name}</h3>
+          <p>${p.desc}</p>
+        </div>
+      </div>
+    </div>
+  `;
+}).join("");
+
+// click card -> center map
+cardsEl.addEventListener("click", e => {
+  const card = e.target.closest(".card");
+  if (!card) return;
+  const id = parseInt(card.dataset.id);
+  const m = markers[id];
+  if (m) {
+    applyDayFilter("all");
+    map.setView(m.getLatLng(), 13);
+    m.openPopup();
+  }
+});
 
 // ----- ITINERARY -----
 const timelineEl = document.getElementById("timeline");
@@ -192,20 +214,39 @@ timelineEl.innerHTML = Object.entries(dayLabels).map(([day, label]) => {
   `;
 }).join("");
 
-// click on itinerary place -> center map
+// click itinerary -> show day on map + scroll to cards
 document.querySelectorAll(".day-place-link").forEach(a => {
   a.addEventListener("click", e => {
     e.preventDefault();
     const id = parseInt(e.currentTarget.dataset.id);
-    const m = markers[id];
-    if (m) {
-// initial load — show all but don't zoom
-Object.values(markers).forEach(m => markerGroup.addLayer(m));
-      map.setView(m.getLatLng(), 13);
-      m.openPopup();
+    const place = places.find(p => p.id === id);
+    if (place && place.day >= 1) {
+      applyDayFilter(String(place.day));
+    } else {
+      const m = markers[id];
+      if (m) {
+        applyDayFilter("all");
+        map.setView(m.getLatLng(), 13);
+        m.openPopup();
+      }
     }
+    document.getElementById("mapa").scrollIntoView({ behavior: "smooth" });
   });
 });
+
+// ----- HERO GALLERY -----
+const heroImgs = document.querySelectorAll(".hero-img");
+if (heroImgs.length) {
+  const heroPics = [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Timanfaya_National_Park_landscape.jpg/640px-Timanfaya_National_Park_landscape.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Risco_de_Famara.jpg/640px-Risco_de_Famara.jpg"
+  ];
+  heroImgs.forEach((el, i) => {
+    if (i < heroPics.length) {
+      el.style.backgroundImage = `url(${heroPics[i]})`;
+    }
+  });
+}
 
 // ----- SMOOTH SCROLL -----
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -218,23 +259,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// fix map on tab show
 document.querySelector('a[href="#mapa"]')?.addEventListener("click", () => {
   setTimeout(() => map.invalidateSize(), 300);
-});
-
-// ----- PERSONAL GALLERY -----
-const galleryEl = document.getElementById("personal-gallery");
-const gallerySlots = 12;
-galleryEl.innerHTML = Array.from({ length: gallerySlots }, (_, i) => `
-  <div class="gallery-slot" data-slot="${i}">
-    <span class="slot-label">➕ Añadir foto ${i + 1}</span>
-  </div>
-`).join("");
-
-// click category filter in card
-document.querySelectorAll(".card-cat").forEach(el => {
-  el.addEventListener("click", e => {
-    e.stopPropagation();
-  });
 });

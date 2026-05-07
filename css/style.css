@@ -17,10 +17,39 @@ body {
   padding: 0 1.5rem;
 }
 
+/* HERO */
 .hero {
+  position: relative;
   height: 60vh;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: 380px;
+  overflow: hidden;
+}
+
+.hero-imgs {
+  position: absolute;
+  inset: 0;
   display: flex;
+}
+
+.hero-img {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  background-color: #1a1a2e;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -32,14 +61,17 @@ body {
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
 }
 
 .subtitle {
   font-size: 1.25rem;
-  opacity: 0.8;
+  opacity: 0.9;
   margin-top: 0.5rem;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.3);
 }
 
+/* NAV */
 .navbar {
   background: white;
   border-bottom: 1px solid #e5e5e5;
@@ -67,6 +99,7 @@ body {
   color: #0f3460;
 }
 
+/* SECTIONS */
 .section {
   padding: 4rem 0;
 }
@@ -77,7 +110,7 @@ body {
 
 .section h2 {
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
   color: #1a1a2e;
 }
@@ -85,122 +118,23 @@ body {
 .section-sub {
   text-align: center;
   color: #999;
-  margin-top: -1.5rem;
-  margin-bottom: 2rem;
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
   font-size: 0.95rem;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  transition: transform 0.2s, box-shadow 0.2s;
-  border: 1px solid #eee;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-}
-
-.card-img {
-  height: 160px;
-  background-size: cover;
-  background-position: center;
-}
-
-.card-body {
-  padding: 1rem 1.25rem 1.25rem;
-}
-
-.card-cat {
-  display: inline-block;
-  font-size: 0.7rem;
-  color: white;
-  padding: 0.15rem 0.6rem;
-  border-radius: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.4rem;
-}
-
-.card h3 {
-  font-size: 1.05rem;
-  margin-bottom: 0.35rem;
-  color: #0f3460;
-}
-
-.card p {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.timeline {
-  max-width: 620px;
+.intro-text {
+  max-width: 680px;
   margin: 0 auto;
-}
-
-.day {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.75rem;
-}
-
-.day-badge {
-  background: #0f3460;
-  color: white;
-  padding: 0.3rem 0.85rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  white-space: nowrap;
-  height: fit-content;
-  min-width: 60px;
+  font-size: 1.05rem;
+  color: #555;
   text-align: center;
+  line-height: 1.7;
 }
 
-.day-content h3 {
-  font-size: 1rem;
-  color: #1a1a2e;
-  margin-bottom: 0.4rem;
-}
-
-.day-content p {
-  font-size: 0.9rem;
-  color: #666;
-}
-
-.day-list {
-  list-style: none;
-  padding: 0;
-}
-
-.day-list li {
-  padding: 0.25rem 0;
-  font-size: 0.9rem;
-}
-
-.day-list li::before {
-  content: "·";
-  margin-right: 0.5rem;
-  opacity: 0.4;
-}
-
-.day-place-link {
-  color: #0f3460;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.day-place-link:hover {
-  text-decoration: underline;
+/* MAP */
+#mapa .container {
+  max-width: 1100px;
 }
 
 #map {
@@ -238,6 +172,123 @@ body {
   color: white;
 }
 
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.card-wrapper {
+  transition: opacity 0.2s;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid #eee;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.card-img {
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+  background-color: #f5f5f5;
+}
+
+.card-body {
+  padding: 0.75rem 1rem 1rem;
+}
+
+.card-cat {
+  display: inline-block;
+  font-size: 0.65rem;
+  color: white;
+  padding: 0.15rem 0.5rem;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.3rem;
+}
+
+.card h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+  color: #0f3460;
+}
+
+.card p {
+  font-size: 0.82rem;
+  color: #666;
+}
+
+/* TIMELINE */
+.timeline {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.day {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.day-badge {
+  color: white;
+  padding: 0.3rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  height: fit-content;
+  min-width: 60px;
+  text-align: center;
+}
+
+.day-content h3 {
+  font-size: 1rem;
+  color: #1a1a2e;
+  margin-bottom: 0.4rem;
+}
+
+.day-list {
+  list-style: none;
+  padding: 0;
+}
+
+.day-list li {
+  padding: 0.2rem 0;
+  font-size: 0.9rem;
+}
+
+.day-list li::before {
+  content: "·";
+  margin-right: 0.5rem;
+  opacity: 0.4;
+}
+
+.day-place-link {
+  color: #0f3460;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.day-place-link:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER */
 footer {
   background: #1a1a2e;
   color: white;
