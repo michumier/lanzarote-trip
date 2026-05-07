@@ -158,10 +158,38 @@ document.getElementById("alojamiento-desc").textContent = BASE_CAMP.desc;
 document.getElementById("alojamiento-address").textContent = "📍 " + BASE_CAMP.address;
 document.getElementById("alojamiento-airbnb").href = BASE_CAMP.airbnb;
 document.getElementById("alojamiento-maps").href = `https://www.google.com/maps?q=${BASE_CAMP.lat},${BASE_CAMP.lng}`;
-if (BASE_CAMP.fotos) {
-  document.getElementById("alojamiento-fotos").innerHTML = BASE_CAMP.fotos.map(f =>
-    `<img src="${f}" alt="Foto del apartamento" loading="lazy">`
+
+const alojaFotos = BASE_CAMP.fotos || [];
+const alojaImg = document.getElementById("alojamiento-img");
+const alojaDots = document.getElementById("aloja-dots");
+let alojaIndex = 0;
+
+function showAloja(i) {
+  alojaIndex = i;
+  alojaImg.style.opacity = 0;
+  setTimeout(() => {
+    alojaImg.src = alojaFotos[alojaIndex];
+    alojaImg.style.opacity = 1;
+  }, 150);
+  alojaDots.querySelectorAll(".carousel-dot").forEach((d, j) => d.classList.toggle("active", j === alojaIndex));
+}
+
+if (alojaFotos.length > 0) {
+  alojaImg.src = alojaFotos[0];
+  alojaDots.innerHTML = alojaFotos.map((_, i) =>
+    `<button class="carousel-dot${i === 0 ? " active" : ""}" data-index="${i}"></button>`
   ).join("");
+
+  document.getElementById("aloja-prev").addEventListener("click", () => {
+    showAloja((alojaIndex - 1 + alojaFotos.length) % alojaFotos.length);
+  });
+  document.getElementById("aloja-next").addEventListener("click", () => {
+    showAloja((alojaIndex + 1) % alojaFotos.length);
+  });
+  alojaDots.addEventListener("click", e => {
+    const dot = e.target.closest(".carousel-dot");
+    if (dot) showAloja(parseInt(dot.dataset.index));
+  });
 }
 
 // ----- CARDS (below map) -----

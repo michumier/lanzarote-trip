@@ -188,22 +188,27 @@ body {
   margin: 0 auto;
 }
 
-.alojamiento-fotos {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
+.alojamiento-carousel {
+  width: 100%;
 }
 
-.alojamiento-fotos img {
+.alojamiento-viewport {
+  position: relative;
   width: 100%;
-  height: 180px;
+  aspect-ratio: 16 / 9;
+  background: #1a1a2e;
+}
+
+.alojamiento-viewport #alojamiento-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
+  transition: opacity 0.4s ease;
 }
 
-.alojamiento-fotos img:first-child {
-  grid-column: 1 / -1;
-  height: 240px;
+.alojamiento-viewport .carousel-btn {
+  background: rgba(255,255,255,0.25);
 }
 
 .alojamiento-body {
@@ -468,8 +473,7 @@ body {
   .carousel-btn { width: 36px; height: 36px; font-size: 1.3rem; }
   .carousel-prev { left: 6px; }
   .carousel-next { right: 6px; }
-  .alojamiento-fotos img { height: 120px; }
-  .alojamiento-fotos img:first-child { height: 180px; }
+  .alojamiento-viewport { aspect-ratio: 4 / 3; }
   .alojamiento-body { padding: 1.25rem; text-align: center; }
   .alojamiento-links { justify-content: center; }
   .lightbox-btn { width: 40px; height: 40px; font-size: 1.5rem; }
