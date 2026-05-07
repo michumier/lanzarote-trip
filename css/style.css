@@ -179,30 +179,44 @@ body {
 
 /* ALOJAMIENTO */
 .alojamiento-card {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
   background: white;
   border-radius: 14px;
-  padding: 1.5rem 2rem;
+  overflow: hidden;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   border: 1px solid #eee;
   max-width: 600px;
   margin: 0 auto;
 }
 
-.alojamiento-icon {
-  font-size: 3rem;
-  flex-shrink: 0;
+.alojamiento-fotos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
 }
 
-.alojamiento-info h3 {
+.alojamiento-fotos img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.alojamiento-fotos img:first-child {
+  grid-column: 1 / -1;
+  height: 240px;
+}
+
+.alojamiento-body {
+  padding: 1.5rem 2rem 1.75rem;
+}
+
+.alojamiento-body h3 {
   font-size: 1.15rem;
   color: #0f3460;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
 }
 
-.alojamiento-info p {
+.alojamiento-body p {
   font-size: 0.9rem;
   color: #666;
   margin-bottom: 0.15rem;
@@ -213,9 +227,13 @@ body {
   color: #999;
 }
 
+.alojamiento-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
 .alojamiento-link {
-  display: inline-block;
-  margin-top: 0.5rem;
   font-size: 0.85rem;
   color: #0f3460;
   text-decoration: none;
@@ -224,6 +242,10 @@ body {
 
 .alojamiento-link:hover {
   text-decoration: underline;
+}
+
+.alojamiento-link-maps {
+  color: #10b981;
 }
 
 /* LIGHTBOX */
@@ -446,7 +468,10 @@ body {
   .carousel-btn { width: 36px; height: 36px; font-size: 1.3rem; }
   .carousel-prev { left: 6px; }
   .carousel-next { right: 6px; }
-  .alojamiento-card { flex-direction: column; text-align: center; padding: 1.5rem; }
+  .alojamiento-fotos img { height: 120px; }
+  .alojamiento-fotos img:first-child { height: 180px; }
+  .alojamiento-body { padding: 1.25rem; text-align: center; }
+  .alojamiento-links { justify-content: center; }
   .lightbox-btn { width: 40px; height: 40px; font-size: 1.5rem; }
   .lightbox-prev { left: 8px; }
   .lightbox-next { right: 8px; }

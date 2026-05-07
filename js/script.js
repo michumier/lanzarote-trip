@@ -156,7 +156,13 @@ document.querySelectorAll(".card-wrapper").forEach(w => w.style.display = "");
 document.getElementById("alojamiento-name").textContent = BASE_CAMP.name;
 document.getElementById("alojamiento-desc").textContent = BASE_CAMP.desc;
 document.getElementById("alojamiento-address").textContent = "📍 " + BASE_CAMP.address;
-document.getElementById("alojamiento-link").href = `https://www.google.com/maps?q=${BASE_CAMP.lat},${BASE_CAMP.lng}`;
+document.getElementById("alojamiento-airbnb").href = BASE_CAMP.airbnb;
+document.getElementById("alojamiento-maps").href = `https://www.google.com/maps?q=${BASE_CAMP.lat},${BASE_CAMP.lng}`;
+if (BASE_CAMP.fotos) {
+  document.getElementById("alojamiento-fotos").innerHTML = BASE_CAMP.fotos.map(f =>
+    `<img src="${f}" alt="Foto del apartamento" loading="lazy">`
+  ).join("");
+}
 
 // ----- CARDS (below map) -----
 const cardsEl = document.getElementById("lugares-cards");

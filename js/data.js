@@ -1,9 +1,16 @@
 const BASE_CAMP = {
-  name: "Nuestro Apartamento",
+  name: "Apartamento en Costa Teguise",
   lat: 28.999,
   lng: -13.502,
-  desc: "Base camp en Costa Teguise",
-  address: "Costa Teguise, Lanzarote"
+  desc: "Nuestra base camp en Calle Adelfas",
+  address: "Calle Adelfas, Costa Teguise, Lanzarote",
+  airbnb: "https://www.airbnb.es/rooms/631883225772335804?adults=2&check_in=2026-06-05&check_out=2026-06-09&children=0&infants=0&pets=0&wishlist_item_id=11006211048188&source_impression_id=p3_1778175003_P3Ad5khacq5d6Q-V&previous_page_section_name=1000",
+  fotos: [
+    "https://a0.muscache.com/im/pictures/d543dd48-b192-41ef-86e2-40cd11a9b80c.jpg?im_w=1440",
+    "https://a0.muscache.com/im/pictures/427dfe31-2ef2-4e5e-8f8b-e4ece235c5aa.jpg?im_w=960&im_q=medq",
+    "https://a0.muscache.com/im/pictures/9a8f860b-7d62-40ad-b405-a0c54b98bc7f.jpg?im_w=1200",
+    "https://a0.muscache.com/im/pictures/8c0bb963-9d4c-4cc6-8c5c-ab8979dfed37.jpg?im_w=960&im_q=medq"
+  ]
 };
 
 const places = [
