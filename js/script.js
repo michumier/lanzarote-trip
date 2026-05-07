@@ -208,8 +208,7 @@ setInterval(() => {
   slides[currentSlide].classList.add("active");
 }, 5000);
 
-// ----- FOTOS (personal gallery) -----
-const fotosGrid = document.getElementById("fotos-grid");
+// ----- FOTOS CAROUSEL -----
 const fotosList = [
   "S1020169.JPG",
   "S1020178.JPG",
@@ -217,10 +216,58 @@ const fotosList = [
   "S1020185.JPG"
 ];
 
+const carouselImg = document.getElementById("carousel-img");
+const carouselDots = document.getElementById("carousel-dots");
+const carouselCounter = document.getElementById("carousel-counter");
+const prevBtn = document.getElementById("carousel-prev");
+const nextBtn = document.getElementById("carousel-next");
+let currentFoto = 0;
+let fotoTimer;
+
+function showFoto(index) {
+  currentFoto = index;
+  carouselImg.style.opacity = 0;
+  setTimeout(() => {
+    carouselImg.src = `img/${fotosList[currentFoto]}`;
+    carouselImg.style.opacity = 1;
+  }, 200);
+  carouselDots.querySelectorAll(".carousel-dot").forEach((d, i) => {
+    d.classList.toggle("active", i === currentFoto);
+  });
+  carouselCounter.textContent = `${currentFoto + 1} / ${fotosList.length}`;
+}
+
+function nextFoto() {
+  showFoto((currentFoto + 1) % fotosList.length);
+  resetFotoTimer();
+}
+
+function prevFoto() {
+  showFoto((currentFoto - 1 + fotosList.length) % fotosList.length);
+  resetFotoTimer();
+}
+
+function resetFotoTimer() {
+  clearInterval(fotoTimer);
+  fotoTimer = setInterval(nextFoto, 4000);
+}
+
 if (fotosList.length > 0) {
-  fotosGrid.innerHTML = fotosList.map(f => `
-    <img src="img/${f}" alt="Foto del viaje" loading="lazy">
-  `).join("");
+  carouselDots.innerHTML = fotosList.map((_, i) =>
+    `<button class="carousel-dot${i === 0 ? " active" : ""}" data-index="${i}"></button>`
+  ).join("");
+  showFoto(0);
+  fotoTimer = setInterval(nextFoto, 4000);
+
+  prevBtn.addEventListener("click", prevFoto);
+  nextBtn.addEventListener("click", nextFoto);
+  carouselDots.addEventListener("click", e => {
+    const dot = e.target.closest(".carousel-dot");
+    if (dot) showFoto(parseInt(dot.dataset.index));
+    resetFotoTimer();
+  });
+  document.getElementById("fotos-carousel").addEventListener("mouseenter", () => clearInterval(fotoTimer));
+  document.getElementById("fotos-carousel").addEventListener("mouseleave", () => { fotoTimer = setInterval(nextFoto, 4000); });
 }
 
 // ----- SMOOTH SCROLL -----

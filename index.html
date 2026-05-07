@@ -82,12 +82,15 @@
     <section id="fotos" class="section">
       <div class="container">
         <h2>Fotos del viaje</h2>
-        <p class="section-sub">Tus fotos del viaje aparecerán aquí</p>
-        <div class="fotos-grid" id="fotos-grid">
-          <div class="foto-placeholder">
-            <span class="foto-placeholder-icon">📸</span>
-            <p>Añade tus fotos en la carpeta <code>img/</code> y súbelas al repositorio</p>
+        <p class="section-sub">Tus fotos del viaje</p>
+        <div class="fotos-carousel" id="fotos-carousel">
+          <div class="carousel-viewport" id="carousel-viewport">
+            <img id="carousel-img" src="" alt="Foto del viaje">
+            <button class="carousel-btn carousel-prev" id="carousel-prev">‹</button>
+            <button class="carousel-btn carousel-next" id="carousel-next">›</button>
           </div>
+          <div class="carousel-dots" id="carousel-dots"></div>
+          <p class="carousel-counter" id="carousel-counter"></p>
         </div>
       </div>
     </section>
