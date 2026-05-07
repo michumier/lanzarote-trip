@@ -189,51 +189,6 @@ cardsEl.addEventListener("click", e => {
   }
 });
 
-// ----- ITINERARY -----
-const timelineEl = document.getElementById("timeline");
-timelineEl.innerHTML = Object.entries(dayLabels).map(([day, label]) => {
-  const ids = dayRoutes[parseInt(day)];
-  const items = ids.map(id => places.find(p => p.id === id)).filter(Boolean);
-  const color = routeColors[parseInt(day)];
-  return `
-    <div class="day">
-      <span class="day-badge" style="background:${color}">${label.split(" ")[0]}</span>
-      <div class="day-content">
-        <h3 style="color:${color}">${label}</h3>
-        <ul class="day-list">
-          ${items.map(p => `
-            <li>
-              <a href="#" class="day-place-link" data-id="${p.id}">
-                ${categoryColors[p.category]?.icon} ${p.name}
-              </a>
-            </li>
-          `).join("")}
-        </ul>
-      </div>
-    </div>
-  `;
-}).join("");
-
-// click itinerary -> show day on map + scroll to cards
-document.querySelectorAll(".day-place-link").forEach(a => {
-  a.addEventListener("click", e => {
-    e.preventDefault();
-    const id = parseInt(e.currentTarget.dataset.id);
-    const place = places.find(p => p.id === id);
-    if (place && place.day >= 1) {
-      applyDayFilter(String(place.day));
-    } else {
-      const m = markers[id];
-      if (m) {
-        applyDayFilter("all");
-        map.setView(m.getLatLng(), 13);
-        m.openPopup();
-      }
-    }
-    document.getElementById("mapa").scrollIntoView({ behavior: "smooth" });
-  });
-});
-
 // ----- HERO CAROUSEL -----
 const heroCarousel = document.getElementById("hero-carousel");
 const heroImages = [
@@ -255,7 +210,12 @@ setInterval(() => {
 
 // ----- FOTOS (personal gallery) -----
 const fotosGrid = document.getElementById("fotos-grid");
-const fotosList = []; // <-- Pon aquí los nombres de tus fotos, ej: "mi-foto.jpg"
+const fotosList = [
+  "S1020169.JPG",
+  "S1020178.JPG",
+  "S1020181.JPG",
+  "S1020185.JPG"
+];
 
 if (fotosList.length > 0) {
   fotosGrid.innerHTML = fotosList.map(f => `
