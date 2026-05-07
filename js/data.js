@@ -1,3 +1,11 @@
+const BASE_CAMP = {
+  name: "Nuestro Apartamento",
+  lat: 28.999,
+  lng: -13.502,
+  desc: "Base camp en Costa Teguise",
+  address: "Costa Teguise, Lanzarote"
+};
+
 const places = [
   {
     id: 1,
@@ -5,8 +13,10 @@ const places = [
     lat: 28.961714,
     lng: -13.551265,
     category: "restaurante",
-    desc: "Bar de tapas en Arrecife. 20-30 €",
-    address: "C. Hermanos Zerolo, 20, Arrecife"
+    day: 3,
+    desc: "Bar de tapas clásico en Arrecife. Ambiente auténtico y buena cocina local.",
+    address: "C. Hermanos Zerolo, 20, Arrecife",
+    img: "https://picsum.photos/seed/elparral/400/300"
   },
   {
     id: 2,
@@ -14,8 +24,10 @@ const places = [
     lat: 29.0333,
     lng: -13.7033,
     category: "naturaleza",
-    desc: "Impresionante paisaje volcánico con cráteres y campos de lava.",
-    address: "Carretera LZ-67, Tinajo"
+    day: 1,
+    desc: "Impresionante paisaje volcánico con cráteres, campos de lava y demostraciones geotérmicas. Imperdible el restaurante El Diablo.",
+    address: "Carretera LZ-67, Tinajo",
+    img: "https://picsum.photos/seed/timanfaya/400/300"
   },
   {
     id: 3,
@@ -23,8 +35,10 @@ const places = [
     lat: 28.8578,
     lng: -13.8417,
     category: "playa",
-    desc: "Playa de arena dorada en Playa Blanca.",
-    address: "Costa Oeste de Playa Blanca, Yaiza"
+    day: 1,
+    desc: "Playa de arena dorada y aguas tranquilas en Playa Blanca. Ideal para bañarse.",
+    address: "Costa Oeste de Playa Blanca, Yaiza",
+    img: "https://picsum.photos/seed/flamingo/400/300"
   },
   {
     id: 4,
@@ -32,8 +46,10 @@ const places = [
     lat: 29.1572,
     lng: -13.4305,
     category: "cultura",
-    desc: "Tubo volcánico transformado en espacio cultural por César Manrique.",
-    address: "Carretera Punta Mujeres, Haría"
+    day: 2,
+    desc: "Tubo volcánico transformado en espacio cultural por César Manrique. Piscina natural, auditorio y restaurante.",
+    address: "Carretera Punta Mujeres, Haría",
+    img: "https://picsum.photos/seed/jameos/400/300"
   },
   {
     id: 5,
@@ -41,8 +57,10 @@ const places = [
     lat: 29.1453,
     lng: -13.4478,
     category: "pueblo",
-    desc: "Pueblo costero en el municipio de Haría.",
-    address: "Punta Mujeres, Haría"
+    day: 2,
+    desc: "Pueblo costero con piscinas naturales y excelentes restaurantes de pescado.",
+    address: "Punta Mujeres, Haría",
+    img: "https://picsum.photos/seed/puntamujeres/400/300"
   },
   {
     id: 6,
@@ -50,8 +68,10 @@ const places = [
     lat: 29.1605,
     lng: -13.4394,
     category: "naturaleza",
-    desc: "Tubo volcánico de más de 6 km. Recorrido subterráneo fascinante.",
-    address: "Carretera Punta Mujeres, Haría"
+    day: 2,
+    desc: "Tubo volcánico de 6 km. Recorrido turístico con iluminación artística y sala de conciertos subterránea.",
+    address: "Carretera Punta Mujeres, Haría",
+    img: "https://picsum.photos/seed/cuevadelosverdes/400/300"
   },
   {
     id: 7,
@@ -59,8 +79,10 @@ const places = [
     lat: 29.1467,
     lng: -13.4983,
     category: "pueblo",
-    desc: "Municipio del norte de Lanzarote, conocido como el 'Valle de las Mil Palmeras'.",
-    address: "Haría"
+    day: 2,
+    desc: "Conocido como el 'Valle de las Mil Palmeras'. Pueblo con encanto y mercado los sábados.",
+    address: "Haría",
+    img: "https://picsum.photos/seed/haria/400/300"
   },
   {
     id: 8,
@@ -68,8 +90,10 @@ const places = [
     lat: 29.2092,
     lng: -13.4969,
     category: "playa",
-    desc: "Playa virgen y remota al norte de la isla.",
-    address: "Acceso desde Yé, Haría"
+    day: 2,
+    desc: "Playa virgen y remota. Acceso a pie (1h) desde Yé. Aguas cristalinas y arena dorada.",
+    address: "Acceso desde Yé, Haría",
+    img: "https://picsum.photos/seed/playadelrisco/400/300"
   },
   {
     id: 9,
@@ -77,17 +101,21 @@ const places = [
     lat: 29.0804,
     lng: -13.4768,
     category: "cultura",
-    desc: "Última gran obra de César Manrique. 4500 especies de cactus.",
-    address: "Av. Garafía, 98, Guatiza, Teguise"
+    day: 2,
+    desc: "Última gran obra de César Manrique. 4500 especies de cactus de 5 continentes en un antiguo cantera.",
+    address: "Av. Garafía, 98, Guatiza, Teguise",
+    img: "https://picsum.photos/seed/jardincactus/400/300"
   },
   {
     id: 10,
     name: "Playa de Famara",
     lat: 29.1262,
-    lng: -13.5260,
+    lng: -13.526,
     category: "playa",
-    desc: "Icónica playa de 5 km al pie del Risco de Famara. Ideal para surf.",
-    address: "Famara, Teguise"
+    day: 2,
+    desc: "Icónica playa de 5 km al pie del Risco de Famara. Surf, puestas de sol espectaculares.",
+    address: "Famara, Teguise",
+    img: "https://picsum.photos/seed/famara/400/300"
   },
   {
     id: 11,
@@ -95,8 +123,10 @@ const places = [
     lat: 29.0452,
     lng: -13.5551,
     category: "cultura",
-    desc: "Museo de arte en una vivienda excavada en la roca volcánica.",
-    address: "C. los Loros, 2, Nazaret, Teguise"
+    day: 3,
+    desc: "Espectacular museo en una vivienda excavada en roca volcánica. Antigua casa de Omar Sharif.",
+    address: "C. los Loros, 2, Nazaret, Teguise",
+    img: "https://picsum.photos/seed/lagomar/400/300"
   },
   {
     id: 12,
@@ -104,8 +134,10 @@ const places = [
     lat: 29.0611,
     lng: -13.5597,
     category: "pueblo",
-    desc: "Antigua capital de Lanzarote. Famosa por su mercado dominical.",
-    address: "Teguise"
+    day: 2,
+    desc: "Antigua capital de Lanzarote. Famosa por su mercado dominical. Casco histórico precioso.",
+    address: "Teguise",
+    img: "https://picsum.photos/seed/teguise/400/300"
   },
   {
     id: 13,
@@ -113,8 +145,10 @@ const places = [
     lat: 28.999,
     lng: -13.502,
     category: "pueblo",
-    desc: "Resort turístico en la costa este de la isla.",
-    address: "Costa Teguise"
+    day: 0,
+    desc: "Resort turístico donde nos alojamos. Playas urbanas, restaurantes y ambiente.",
+    address: "Costa Teguise",
+    img: "https://picsum.photos/seed/costateguise/400/300"
   },
   {
     id: 14,
@@ -122,8 +156,10 @@ const places = [
     lat: 28.9611,
     lng: -13.5506,
     category: "pueblo",
-    desc: "Capital de Lanzarote, con el Charco de San Ginés y el Puente de las Bolas.",
-    address: "Arrecife"
+    day: 3,
+    desc: "Capital de Lanzarote. Charco de San Ginés, Puente de las Bolas, castillo de San Gabriel.",
+    address: "Arrecife",
+    img: "https://picsum.photos/seed/arrecife/400/300"
   },
   {
     id: 15,
@@ -131,8 +167,10 @@ const places = [
     lat: 28.9545,
     lng: -13.5541,
     category: "naturaleza",
-    desc: "Pequeño islote en Arrecife rehabilitado por César Manrique.",
-    address: "Parque Islas Canarias, Arrecife"
+    day: 3,
+    desc: "Pequeño islote rehabilitado por César Manrique. Piscina, cafetería y vistas a la bahía.",
+    address: "Parque Islas Canarias, Arrecife",
+    img: "https://picsum.photos/seed/islotefermina/400/300"
   },
   {
     id: 16,
@@ -140,8 +178,10 @@ const places = [
     lat: 28.9738,
     lng: -13.6353,
     category: "naturaleza",
-    desc: "Fisuras volcánicas en la ladera de Montaña Blanca.",
-    address: "LZ-30, entre Tías y San Bartolomé"
+    day: 1,
+    desc: "Fisuras volcánicas espectaculares en Montaña Blanca. Parece un mini-Grand Canyon.",
+    address: "LZ-30, entre Tías y San Bartolomé",
+    img: "https://picsum.photos/seed/lasgrietas/400/300"
   },
   {
     id: 17,
@@ -149,8 +189,10 @@ const places = [
     lat: 28.9737,
     lng: -13.7005,
     category: "naturaleza",
-    desc: "Paisaje protegido de viñedos plantados en hoyos volcánicos.",
-    address: "La Geria"
+    day: 1,
+    desc: "Paisaje protegido con viñedos únicos plantados en hoyos de picón. Bodegas para visitar.",
+    address: "La Geria",
+    img: "https://picsum.photos/seed/lageria/400/300"
   },
   {
     id: 18,
@@ -158,8 +200,10 @@ const places = [
     lat: 28.8904,
     lng: -13.8756,
     category: "naturaleza",
-    desc: "Piscinas naturales en la costa suroeste de la isla.",
-    address: "Yaiza"
+    day: 1,
+    desc: "Piscinas naturales volcánicas en la costa suroeste. Baño en pozas de agua marina.",
+    address: "Yaiza",
+    img: "https://picsum.photos/seed/loscharcones/400/300"
   },
   {
     id: 19,
@@ -167,8 +211,10 @@ const places = [
     lat: 28.9815,
     lng: -13.8303,
     category: "naturaleza",
-    desc: "Localidad costera con la famosa Laguna Verde.",
-    address: "El Golfo, Yaiza"
+    day: 1,
+    desc: "Famosa Laguna Verde (Charco de los Clicos) dentro de un cráter volcánico a orillas del mar.",
+    address: "El Golfo, Yaiza",
+    img: "https://picsum.photos/seed/elgolfo/400/300"
   },
   {
     id: 20,
@@ -176,8 +222,10 @@ const places = [
     lat: 28.9539,
     lng: -13.8336,
     category: "naturaleza",
-    desc: "Acantilados volcánicos donde el mar entra con fuerza formando géiseres.",
-    address: "Carretera de El Golfo, Yaiza"
+    day: 1,
+    desc: "Acantilados volcánicos donde el mar entra en cuevas formando géiseres espectaculares.",
+    address: "Carretera de El Golfo, Yaiza",
+    img: "https://picsum.photos/seed/hervideros/400/300"
   },
   {
     id: 21,
@@ -185,8 +233,10 @@ const places = [
     lat: 29.1229,
     lng: -13.5247,
     category: "restaurante",
-    desc: "Restaurante con vistas espectaculares a la playa de Famara.",
-    address: "C. Chirimoya, 13, Famara, Teguise"
+    day: 2,
+    desc: "Restaurante con vistas espectaculares a Famara. Cocina canaria de calidad.",
+    address: "C. Chirimoya, 13, Famara, Teguise",
+    img: "https://picsum.photos/seed/dunasfamara/400/300"
   },
   {
     id: 22,
@@ -194,8 +244,10 @@ const places = [
     lat: 28.8611,
     lng: -13.8657,
     category: "restaurante",
-    desc: "Hotel boutique con villas privadas y vistas al mar en Playa Blanca.",
-    address: "C. Mónaco, 2, Playa Blanca, Yaiza"
+    day: 1,
+    desc: "Hotel boutique con restaurante. Cena con vistas al atardecer en Playa Blanca.",
+    address: "C. Mónaco, 2, Playa Blanca, Yaiza",
+    img: "https://picsum.photos/seed/kamezi/400/300"
   },
   {
     id: 23,
@@ -203,8 +255,10 @@ const places = [
     lat: 28.996,
     lng: -13.498,
     category: "restaurante",
-    desc: "Tapas en Costa Teguise. Muy popular, no acepta reservas.",
-    address: "Av. Islas Canarias 12, CC Maretas, Costa Teguise"
+    day: 3,
+    desc: "Tapas en Costa Teguise. Muy popular, no acepta reservas. Llegar temprano.",
+    address: "Av. Islas Canarias 12, CC Maretas, Costa Teguise",
+    img: "https://picsum.photos/seed/latabla/400/300"
   },
   {
     id: 24,
@@ -212,8 +266,10 @@ const places = [
     lat: 28.9203,
     lng: -13.6463,
     category: "restaurante",
-    desc: "Smash burgers y cervezas especiales en Puerto del Carmen.",
-    address: "Av. de las Playas, 53, Puerto del Carmen, Tías"
+    day: 1,
+    desc: "Las mejores smash burgers de la isla. Ambiente joven y cervezas artesanales.",
+    address: "Av. de las Playas, 53, Puerto del Carmen, Tías",
+    img: "https://picsum.photos/seed/meneo/400/300"
   },
   {
     id: 25,
@@ -221,7 +277,9 @@ const places = [
     lat: 29.0225,
     lng: -13.6127,
     category: "restaurante",
-    desc: "Bar-restaurante tradicional canario en Mozaga.",
-    address: "C. Sancocho, 61, Mozaga, Teguise"
+    day: 3,
+    desc: "Bar-restaurante tradicional canario. Cocina casera, precios populares.",
+    address: "C. Sancocho, 61, Mozaga, Teguise",
+    img: "https://picsum.photos/seed/teleclub/400/300"
   }
 ];
