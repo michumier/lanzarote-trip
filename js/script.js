@@ -253,6 +253,16 @@ setInterval(() => {
   slides[currentSlide].classList.add("active");
 }, 5000);
 
+// ----- FOTOS (personal gallery) -----
+const fotosGrid = document.getElementById("fotos-grid");
+const fotosList = []; // <-- Pon aquí los nombres de tus fotos, ej: "mi-foto.jpg"
+
+if (fotosList.length > 0) {
+  fotosGrid.innerHTML = fotosList.map(f => `
+    <img src="img/${f}" alt="Foto del viaje" loading="lazy">
+  `).join("");
+}
+
 // ----- SMOOTH SCROLL -----
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", e => {

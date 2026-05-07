@@ -16,7 +16,7 @@ const places = [
     day: 3,
     desc: "Bar de tapas clásico en Arrecife.",
     address: "C. Hermanos Zerolo, 20, Arrecife",
-    img: ""
+    img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/af/49/38/desayunos-y-tapas.jpg"
   },
   {
     id: 2,
@@ -38,7 +38,7 @@ const places = [
     day: 1,
     desc: "Playa de arena dorada en Playa Blanca.",
     address: "Costa Oeste de Playa Blanca, Yaiza",
-    img: ""
+    img: "https://upload.wikimedia.org/wikipedia/commons/4/45/Yaiza_Playa_Blanca_-_Avenida_Maritima_-_Playa_Flamingo_04_ies.jpg"
   },
   {
     id: 4,
@@ -93,7 +93,7 @@ const places = [
     day: 2,
     desc: "Playa virgen remota. Acceso a pie (1h).",
     address: "Acceso desde Yé, Haría",
-    img: ""
+    img: "https://turismolanzarote.com/wp-content/uploads/2017/03/MG_4257-Panora%CC%81mica-copia.jpg"
   },
   {
     id: 9,
@@ -126,7 +126,7 @@ const places = [
     day: 3,
     desc: "Museo en vivienda excavada en roca volcánica.",
     address: "C. los Loros, 2, Nazaret, Teguise",
-    img: ""
+    img: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Teguise_Nazaret_-_Calle_Los_Loros_-_Lagomar_26_ies.jpg"
   },
   {
     id: 12,
@@ -137,7 +137,7 @@ const places = [
     day: 2,
     desc: "Antigua capital. Mercado dominical famoso.",
     address: "Teguise",
-    img: ""
+    img: "https://www.barcelo.com/guia-turismo/wp-content/uploads/2020/07/teguise-1.jpg"
   },
   {
     id: 13,
@@ -170,7 +170,7 @@ const places = [
     day: 3,
     desc: "Islote rehabilitado por César Manrique.",
     address: "Parque Islas Canarias, Arrecife",
-    img: ""
+    img: "https://upload.wikimedia.org/wikipedia/commons/2/29/Arrecife_-_Islote_de_Fermina_04_ies.jpg"
   },
   {
     id: 16,
@@ -181,7 +181,7 @@ const places = [
     day: 1,
     desc: "Fisuras volcánicas espectaculares.",
     address: "LZ-30, Tías - San Bartolomé",
-    img: ""
+    img: "https://www.lanzarote.com/wp-content/uploads/2023/02/las-grietas-lanzarote.jpg"
   },
   {
     id: 17,
@@ -203,7 +203,7 @@ const places = [
     day: 1,
     desc: "Piscinas naturales volcánicas.",
     address: "Yaiza",
-    img: ""
+    img: "https://ociolanzarote.com/wp-content/imagenes/piscina-natural-tranquila.jpg"
   },
   {
     id: 19,
@@ -214,7 +214,7 @@ const places = [
     day: 1,
     desc: "Laguna Verde (Charco de los Clicos).",
     address: "El Golfo, Yaiza",
-    img: ""
+    img: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Charco_de_los_Clicos_-_El_Golfo.jpg"
   },
   {
     id: 20,
@@ -225,7 +225,7 @@ const places = [
     day: 1,
     desc: "Acantilados volcánicos con géiseres.",
     address: "Carretera de El Golfo, Yaiza",
-    img: ""
+    img: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Los_Hervideros_-_Lanzarote_-_LH05.jpg"
   },
   {
     id: 21,
@@ -236,7 +236,7 @@ const places = [
     day: 2,
     desc: "Cocina canaria con vistas a Famara.",
     address: "C. Chirimoya, 13, Famara, Teguise",
-    img: ""
+    img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/45/60/7a/atardecer-en-dunas-de.jpg"
   },
   {
     id: 22,
@@ -247,7 +247,7 @@ const places = [
     day: 1,
     desc: "Cena con vistas al atardecer.",
     address: "C. Mónaco, 2, Playa Blanca, Yaiza",
-    img: ""
+    img: "https://images.trvl-media.com/lodging/2000000/1460000/1455800/1455762/cdaaeede.jpg"
   },
   {
     id: 23,
@@ -258,7 +258,7 @@ const places = [
     day: 3,
     desc: "Tapas en Costa Teguise.",
     address: "Av. Islas Canarias 12, CC Maretas, Costa Teguise",
-    img: ""
+    img: "https://latablafamily.com/wp-content/themes/yootheme/cache/49/La-Tabla_027_2023-11-10-scaled-497366dd.jpeg"
   },
   {
     id: 24,
@@ -269,7 +269,7 @@ const places = [
     day: 1,
     desc: "Smash burgers y cervezas artesanas.",
     address: "Av. de las Playas 53, Puerto del Carmen, Tías",
-    img: ""
+    img: "https://glovo.dhmedia.io/image/vso-so-backend/GV_ES/HT4E9Q/attachment__1765910198919840143.jpg"
   },
   {
     id: 25,
@@ -280,6 +280,6 @@ const places = [
     day: 3,
     desc: "Cocina tradicional canaria.",
     address: "C. Sancocho, 61, Mozaga, Teguise",
-    img: ""
+    img: "https://img.carta.menu/storage/media/company_images/42492104/conversions/thumbnail.jpg"
   }
 ];
