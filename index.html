@@ -20,8 +20,8 @@
   <nav class="navbar">
     <ul>
       <li><a href="#info">Info</a></li>
+      <li><a href="#alojamiento">Alojamiento</a></li>
       <li><a href="#mapa">Mapa</a></li>
-
       <li><a href="#fotos">Fotos</a></li>
     </ul>
   </nav>
@@ -69,6 +69,21 @@
       </div>
     </section>
 
+    <section id="alojamiento" class="section">
+      <div class="container">
+        <h2>Nuestro alojamiento</h2>
+        <div class="alojamiento-card">
+          <div class="alojamiento-icon">🏠</div>
+          <div class="alojamiento-info">
+            <h3 id="alojamiento-name"></h3>
+            <p id="alojamiento-desc"></p>
+            <p class="alojamiento-address" id="alojamiento-address"></p>
+            <a class="alojamiento-link" id="alojamiento-link" target="_blank" rel="noopener">Ver en Google Maps →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="mapa" class="section">
       <div class="container">
         <h2>Mapa interactivo</h2>
@@ -101,6 +116,13 @@
       <p>Lanzarote 2026</p>
     </div>
   </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">×</button>
+    <button class="lightbox-btn lightbox-prev" id="lightbox-prev">‹</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    <button class="lightbox-btn lightbox-next" id="lightbox-next">›</button>
+  </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/data.js"></script>

@@ -152,8 +152,19 @@ function applyDayFilter(filter) {
 Object.values(markers).forEach(m => markerGroup.addLayer(m));
 document.querySelectorAll(".card-wrapper").forEach(w => w.style.display = "");
 
+// ----- ACCOMMODATION -----
+document.getElementById("alojamiento-name").textContent = BASE_CAMP.name;
+document.getElementById("alojamiento-desc").textContent = BASE_CAMP.desc;
+document.getElementById("alojamiento-address").textContent = "📍 " + BASE_CAMP.address;
+document.getElementById("alojamiento-link").href = `https://www.google.com/maps?q=${BASE_CAMP.lat},${BASE_CAMP.lng}`;
+
 // ----- CARDS (below map) -----
 const cardsEl = document.getElementById("lugares-cards");
+const orderMap = {};
+Object.entries(dayRoutes).forEach(([day, ids]) => {
+  ids.forEach((id, i) => { orderMap[id] = { day: parseInt(day), order: i + 1, total: ids.length }; });
+});
+
 cardsEl.innerHTML = places.map(p => {
   const c = categoryColors[p.category] || { color: "#666", icon: "📍" };
   const hasImg = p.img && p.img.startsWith("http");
@@ -162,10 +173,12 @@ cardsEl.innerHTML = places.map(p => {
     ? `background-image:url(${p.img})`
     : `background:${gradient}; display:flex; align-items:center; justify-content:center; font-size:2.5rem`;
   const imgContent = hasImg ? "" : `<span>${c.icon}</span>`;
+  const order = orderMap[p.id];
+  const orderBadge = order ? `<span class="card-order">${order.order}/${order.total}</span>` : "";
   return `
     <div class="card-wrapper" data-day="${p.day}">
       <div class="card" data-id="${p.id}">
-        <div class="card-img" style="${imgStyle}">${imgContent}</div>
+        <div class="card-img" style="${imgStyle}">${orderBadge}${imgContent}</div>
         <div class="card-body">
           <span class="card-cat" style="background:${c.color}">${categoryLabels[p.category] || p.category}</span>
           <h3>${p.name}</h3>
@@ -252,12 +265,52 @@ function resetFotoTimer() {
   fotoTimer = setInterval(nextFoto, 4000);
 }
 
+// ----- LIGHTBOX -----
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const lightboxPrev = document.getElementById("lightbox-prev");
+const lightboxNext = document.getElementById("lightbox-next");
+
+function openLightbox(index) {
+  currentFoto = index;
+  lightboxImg.src = `img/${fotosList[currentFoto]}`;
+  lightbox.classList.add("open");
+  clearInterval(fotoTimer);
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("open");
+  fotoTimer = setInterval(nextFoto, 4000);
+}
+
+lightboxPrev.addEventListener("click", () => {
+  currentFoto = (currentFoto - 1 + fotosList.length) % fotosList.length;
+  lightboxImg.src = `img/${fotosList[currentFoto]}`;
+});
+
+lightboxNext.addEventListener("click", () => {
+  currentFoto = (currentFoto + 1) % fotosList.length;
+  lightboxImg.src = `img/${fotosList[currentFoto]}`;
+});
+
+document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
+lightbox.addEventListener("click", e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener("keydown", e => {
+  if (!lightbox.classList.contains("open")) return;
+  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowLeft") lightboxPrev.click();
+  if (e.key === "ArrowRight") lightboxNext.click();
+});
+
 if (fotosList.length > 0) {
   carouselDots.innerHTML = fotosList.map((_, i) =>
     `<button class="carousel-dot${i === 0 ? " active" : ""}" data-index="${i}"></button>`
   ).join("");
   showFoto(0);
   fotoTimer = setInterval(nextFoto, 4000);
+
+  carouselImg.style.cursor = "pointer";
+  carouselImg.addEventListener("click", () => openLightbox(currentFoto));
 
   prevBtn.addEventListener("click", prevFoto);
   nextBtn.addEventListener("click", nextFoto);
